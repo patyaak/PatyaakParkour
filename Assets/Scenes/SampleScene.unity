@@ -227,7 +227,12 @@ MonoBehaviour:
   followTarget: {fileID: 1667979786}
   distance: 5
   minVerticalAngle: -5
-  maxVerticalAngle: 45
+  maxVerticalAngle: 30
+  framingOffset: {x: 0, y: 1}
+  invertX: 1
+  invertY: 1
+  invertXVal: 0
+  invertYVal: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
