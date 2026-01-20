@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     public float minVerticalAngle = -45f;  //change in inspector mode--> for player rotation in up down
     public float maxVerticalAngle = 45f;
     public Vector2 framingOffset;  //this is for how much the player can be seen
-    private float rotationSpeed = 2f;
+    [SerializeField] private float rotationSpeed = 2f;
 
     [Header("Inverted Bools")]
     public bool invertX;
@@ -43,4 +43,6 @@ public class CameraController : MonoBehaviour
     }
 
     public Quaternion PlanerRotation => Quaternion.Euler(0, rotationY, 0);
+
+
 }
