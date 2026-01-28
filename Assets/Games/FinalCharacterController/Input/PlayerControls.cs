@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace PatyaakGame.FinalCharacterContoller
+namespace PatyaakGame.FinalCharacterController
 {
     /// <summary>
     /// Provides programmatic access to <see cref="InputActionAsset" />, <see cref="InputActionMap" />, <see cref="InputAction" /> and <see cref="InputControlScheme" /> instances defined in asset "Assets/Games/FinalCharacterController/Input/PlayerControls.inputactions".
@@ -98,6 +98,15 @@ namespace PatyaakGame.FinalCharacterContoller
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""f5140c03-24f6-4749-9354-b1723d3a0f4e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""f7510aa5-27c5-4dee-a22c-e8afa695c626"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -214,6 +223,17 @@ namespace PatyaakGame.FinalCharacterContoller
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f40aef80-103b-4f74-a90a-5b2f08266578"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -223,6 +243,7 @@ namespace PatyaakGame.FinalCharacterContoller
             // PlayerLocomotionMap
             m_PlayerLocomotionMap = asset.FindActionMap("PlayerLocomotionMap", throwIfNotFound: true);
             m_PlayerLocomotionMap_Movement = m_PlayerLocomotionMap.FindAction("Movement", throwIfNotFound: true);
+            m_PlayerLocomotionMap_Look = m_PlayerLocomotionMap.FindAction("Look", throwIfNotFound: true);
         }
 
         ~@PlayerControls()
@@ -304,6 +325,7 @@ namespace PatyaakGame.FinalCharacterContoller
         private readonly InputActionMap m_PlayerLocomotionMap;
         private List<IPlayerLocomotionMapActions> m_PlayerLocomotionMapActionsCallbackInterfaces = new List<IPlayerLocomotionMapActions>();
         private readonly InputAction m_PlayerLocomotionMap_Movement;
+        private readonly InputAction m_PlayerLocomotionMap_Look;
         /// <summary>
         /// Provides access to input actions defined in input action map "PlayerLocomotionMap".
         /// </summary>
@@ -319,6 +341,10 @@ namespace PatyaakGame.FinalCharacterContoller
             /// Provides access to the underlying input action "PlayerLocomotionMap/Movement".
             /// </summary>
             public InputAction @Movement => m_Wrapper.m_PlayerLocomotionMap_Movement;
+            /// <summary>
+            /// Provides access to the underlying input action "PlayerLocomotionMap/Look".
+            /// </summary>
+            public InputAction @Look => m_Wrapper.m_PlayerLocomotionMap_Look;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -348,6 +374,9 @@ namespace PatyaakGame.FinalCharacterContoller
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
             }
 
             /// <summary>
@@ -362,6 +391,9 @@ namespace PatyaakGame.FinalCharacterContoller
                 @Movement.started -= instance.OnMovement;
                 @Movement.performed -= instance.OnMovement;
                 @Movement.canceled -= instance.OnMovement;
+                @Look.started -= instance.OnLook;
+                @Look.performed -= instance.OnLook;
+                @Look.canceled -= instance.OnLook;
             }
 
             /// <summary>
@@ -409,6 +441,13 @@ namespace PatyaakGame.FinalCharacterContoller
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnMovement(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnLook(InputAction.CallbackContext context);
         }
     }
 }
