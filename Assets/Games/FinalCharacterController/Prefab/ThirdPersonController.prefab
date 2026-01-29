@@ -325,7 +325,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5728923122416288014}
   - component: {fileID: 4031472050127794561}
-  - component: {fileID: 848605183864374508}
   - component: {fileID: 597090506824185430}
   m_Layer: 0
   m_Name: DummyCamera
@@ -402,14 +401,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &848605183864374508
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456153143756217610}
-  m_Enabled: 1
 --- !u!114 &597090506824185430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,6 +564,8 @@ GameObject:
   - component: {fileID: 4271273335488718814}
   - component: {fileID: 8335692376456324536}
   - component: {fileID: 4627146357016783639}
+  - component: {fileID: 8715379448952108379}
+  - component: {fileID: 3528212957448283491}
   m_Layer: 0
   m_Name: ThirdPersonController
   m_TagString: Untagged
@@ -621,8 +614,8 @@ Animator:
   m_GameObject: {fileID: 1497453394908456401}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e3427c2610e7ee74ba5ce5a2ca1ba40a, type: 3}
-  m_Controller: {fileID: 9100000, guid: 90ed86831f8a4cd4abb8af982ab5b0dc, type: 2}
-  m_CullingMode: 1
+  m_Controller: {fileID: 9100000, guid: 0beeb8edc980be94693b5ba6491c5b3f, type: 2}
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -675,9 +668,10 @@ MonoBehaviour:
   runAcceleration: 50
   runSpeed: 4
   drag: 20
+  movingThreshold: 0.01
   lookSenseH: 0.1
   lookSenseV: 0.1
-  lookLimitV: 89
+  lookLimitV: 20
 --- !u!114 &4627146357016783639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,6 +684,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ad50e4d0a8d1cb48b06f6880af2c89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8715379448952108379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497453394908456401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a888586324fdc54585bfc04dfcc3013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentPlayerMovementState>k__BackingField: 0
+--- !u!114 &3528212957448283491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497453394908456401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f8e089b8ec66e43b3eaf5252999db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1428064288924608865}
+  locomotionBlendSpeed: 5
 --- !u!1 &1513889820949155901
 GameObject:
   m_ObjectHideFlags: 0

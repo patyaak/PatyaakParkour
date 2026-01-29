@@ -127,26 +127,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 848605183864374508, guid: fd2912185559f4d41adba0ec5e20475a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428064288924608865, guid: fd2912185559f4d41adba0ec5e20475a, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0beeb8edc980be94693b5ba6491c5b3f, type: 2}
-    - target: {fileID: 1428064288924608865, guid: fd2912185559f4d41adba0ec5e20475a, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428064288924608865, guid: fd2912185559f4d41adba0ec5e20475a, type: 3}
-      propertyPath: m_AnimatePhysics
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428064288924608865, guid: fd2912185559f4d41adba0ec5e20475a, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1497453394908456401, guid: fd2912185559f4d41adba0ec5e20475a, type: 3}
       propertyPath: m_Name
       value: ThirdPersonController
@@ -191,16 +171,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8335692376456324536, guid: fd2912185559f4d41adba0ec5e20475a, type: 3}
-      propertyPath: lookLimitV
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8335692376456324536, guid: fd2912185559f4d41adba0ec5e20475a, type: 3}
-      propertyPath: lookSenseH
-      value: 0.1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 848605183864374508, guid: fd2912185559f4d41adba0ec5e20475a, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
