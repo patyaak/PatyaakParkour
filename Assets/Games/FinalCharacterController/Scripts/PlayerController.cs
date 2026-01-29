@@ -12,9 +12,9 @@ namespace PatyaakGame.FinalCharacterController
 
 
         [Header("Base Movement")]
-        public float runAcceleration = 50f;
+        public float runAcceleration = 35f;
         public float runSpeed = 4f;
-        public float sprintAcceleration = 0.5f;
+        public float sprintAcceleration = 50f;
         public float sprintSpeed = 7f;
         public float drag = 20f;
         public float movingThreshold = 0.01f;

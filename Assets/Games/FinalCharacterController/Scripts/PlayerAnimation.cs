@@ -13,6 +13,8 @@ namespace PatyaakGame.FinalCharacterController
 
         private static int inputXHash = Animator.StringToHash("inputX");
         private static int inputYHash = Animator.StringToHash("inputY");
+        private static int inputMagnitudeHash = Animator.StringToHash("inputMagnitude");
+
         private Vector3 currentBlendInput = Vector3.zero;
 
 
@@ -29,12 +31,15 @@ namespace PatyaakGame.FinalCharacterController
 
         private void UpdateAnimationState()
         {
-            Vector2 inputTarget = playerLocomotionInput.MovementInput;
+            bool isSprinting = playerState.CurrentPlayerMovementState == PlayerMovementState.Sprinting;
+
+
+            Vector2 inputTarget = isSprinting ? playerLocomotionInput.MovementInput * 1.5f : playerLocomotionInput.MovementInput;
             currentBlendInput = Vector3.Lerp(currentBlendInput, inputTarget, locomotionBlendSpeed * Time.deltaTime);
 
-
             animator.SetFloat(inputXHash, currentBlendInput.x);
-            animator.SetFloat (inputYHash, currentBlendInput.y);
+            animator.SetFloat(inputYHash, currentBlendInput.y);
+            animator.SetFloat(inputMagnitudeHash, currentBlendInput.magnitude);
         }
     }
 
