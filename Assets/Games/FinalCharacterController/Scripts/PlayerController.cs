@@ -46,11 +46,12 @@ namespace PatyaakGame.FinalCharacterController
         {
             bool isMovementInput = playerLocomotionInput.MovementInput != Vector2.zero;
             bool isMovingLaterally = IsMovingLaterally();
-            bool isSprinting = playerLocomotionInput.SprintToggledOn && isMovingLaterally;
+            bool isSprinting = playerLocomotionInput.SprintToggledOn && isMovementInput;
 
             PlayerMovementState lateralState = isSprinting ? PlayerMovementState.Sprinting :
                 isMovingLaterally || isMovementInput? PlayerMovementState.Running:PlayerMovementState.Idling;
             playerState.SetPlayerMovementState(lateralState);
+            Debug.Log($"[PlayerController] SprintToggle: {playerLocomotionInput.SprintToggledOn}, Input: {isMovementInput}, State: {lateralState}");
 
         }
         private void HandleLateralMovement()
@@ -89,7 +90,7 @@ namespace PatyaakGame.FinalCharacterController
 
         private bool IsMovingLaterally()
         {
-            Vector3 lateralVelocity = new Vector3(characterController.velocity.x, 0f, characterController.velocity.y);
+            Vector3 lateralVelocity = new Vector3(characterController.velocity.x, 0f, characterController.velocity.z);
             return lateralVelocity.magnitude > movingThreshold;
         }
     }
